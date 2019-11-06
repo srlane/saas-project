@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap-datepicker3
  *= require_tree .
  *= require_self
  */
@@ -201,4 +202,13 @@ color: #5cb85c;
 
 .no-right-padding {
     padding-right: 0 !important;
+}
+
+.table tr td {
+    a.main-link {
+        color: #428bca;
+    }
+    a.main-link:hover {
+        background: none;
+    }
 }
