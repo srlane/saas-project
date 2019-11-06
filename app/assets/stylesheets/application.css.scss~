@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.user-name {
+
+padding: 0 !important ;
+
+padding-left: 5px;
+
+padding-top: 15px !important;
+
+text-align: center;
+
+a {
+
+color: #fff !important;
+
+margin: 0 !important;
+
+padding: 5px!important;
+
+}
+
+a:hover, a:focus {
+
+color: #000 !important;
+
+}
+
+}
+
+.nav.navbar-right {
+
+padding-bottom: 10px;
+
+padding-top: 5px;
+
+}
+
+.nav.navbar-nav {
+
+.navbar-link {
+
+border-radius: 5px;
+
+color: #fff;
+
+margin-top: 15px;
+
+padding: 8px;
+
+}
+
+.navbar-link:focus, .navbar-link:hover {
+
+background: #3071a9;
+
+color: #fff;
+
+}
+
+li a {
+
+margin-right: 5px;
+
+}
+
+}
+
+.nav.navbar-right li {
+
+.btn {
+
+color: #fff !important;
+
+margin-top: 5%;
+
+}
+
+.btn-danger:hover, .btn-danger:focus {
+
+background-color: darken(#d9534f,20%) !important;
+
+}
+
+.btn-primary:hover, .btn-primary:focus {
+
+background-color: darken(#428bca,20%) !important;
+
+}
+
+}
+
+.btn-primary:visited, .btn-danger:visited {
+
+color: #fff;
+
+}
