@@ -5704,3 +5704,1853 @@ DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.
             FROM sqlite_temp_master
             WHERE name='index_users_on_tenant_id' AND type='index'
 [0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block in <module:DevisePermittedParameters> at /home/srlane/Notes/ruby-projects/rails-projects/saas-project/config/initializers/devise_permitted_parameters.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+DEPRECATION WARNING: Passing #original_exception is deprecated and has no effect. Exceptions will automatically capture the original exception. (called from load at /home/srlane/.rbenv/versions/2.6.3/bin/rake:23)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block in <module:DevisePermittedParameters> at /home/srlane/Notes/ruby-projects/rails-projects/saas-project/config/initializers/devise_permitted_parameters.rb:5)
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20191106155807)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "skip_confirm_change_password" boolean DEFAULT 'f', "tenant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_users_on_tenant_id" ON "users" ("tenant_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106155807"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddSessionsTable (20191106155808)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar NOT NULL, "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sessions_on_session_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sessions_on_session_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106155808"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTenants (20191106155809)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tenants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tenant_id" integer, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tenants_on_tenant_id" ON "tenants" ("tenant_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tenants_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tenants_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tenants_on_name" ON "tenants" ("name")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106155809"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTenantsUsersJoinTable (20191106155810)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "tenants_users" ("tenant_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_tenants_users_on_tenant_id_and_user_id" ON "tenants_users" ("tenant_id", "user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106155810"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMembers (20191106155811)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "members" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tenant_id" integer, "user_id" integer, "first_name" varchar, "last_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_members_on_tenant_id" ON "members" ("tenant_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_members_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_members_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_members_on_user_id" ON "members" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106155811"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPlanToTenants (20191106164059)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "tenants" ADD "plan" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106164059"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProjects (20191106182801)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "details" varchar, "expected_completion_date" date, "tenant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_projects_on_tenant_id" ON "projects" ("tenant_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106182801"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArtifacts (20191106193121)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "artifacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "key" varchar, "project_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_artifacts_on_project_id" ON "artifacts" ("project_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106193121"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePayments (20191106214241)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "payments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "token" varchar, "tenant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_payments_on_tenant_id" ON "payments" ("tenant_id")[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191106214241"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIsAdminToUsers (20191107152852)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "is_admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107152852"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUserProjects (20191107154733)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "user_projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_projects_on_project_id" ON "user_projects" ("project_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_projects_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_projects_on_project_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_user_projects_on_user_id" ON "user_projects" ("user_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191107154733"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-07 16:43:10.184180"], ["updated_at", "2019-11-07 16:43:10.184180"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_artifacts_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_artifacts_on_project_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_members_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_members_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_members_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_members_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_payments_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_payments_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_projects_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_projects_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sessions_on_updated_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sessions_on_updated_at' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sessions_on_session_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sessions_on_session_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tenants_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tenants_on_name' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tenants_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tenants_on_tenant_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tenants_users_on_tenant_id_and_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tenants_users_on_tenant_id_and_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_projects_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_projects_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_projects_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_projects_on_project_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_tenant_id' AND type='index'
+[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block in <module:DevisePermittedParameters> at /home/srlane/Notes/ruby-projects/rails-projects/saas-project/config/initializers/devise_permitted_parameters.rb:5)
+Started GET "/" for ::1 at 2019-11-07 10:43:28 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.9ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 323ms (Views: 313.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:43:29 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (9.0ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.0ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.1ms)
+Started GET "/users/sign_up?plan=free" for ::1 at 2019-11-07 10:43:40 -0600
+Processing by RegistrationsController#new as HTML
+  Parameters: {"plan"=>"free"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (16.7ms)
+  Rendered common/_navbar.html.erb (1.5ms)
+Completed 200 OK in 137ms (Views: 128.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2019-11-07 10:43:54 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+0im/Gk7n6ZRsA0g8Y19/9JdA00x1eFMrIiX1gXYdobO9gK6BC0jKR5uxp5wf0taaBCz09ZTMHi1fsfh6YGtzA==", "user"=>{"email"=>"scott@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "tenant"=>{"name"=>"Test Company LLC", "plan"=>"free"}, "payment"=>{"card_number"=>"", "card_cvv"=>"", "card_expires_month"=>"", "card_expires_year"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTenant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tenants" WHERE "tenants"."name" = ? LIMIT ?[0m  [["name", "Test Company LLC"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "tenants" ("name", "created_at", "updated_at", "plan") VALUES (?, ?, ?, ?)[0m  [["name", "Test Company LLC"], ["created_at", "2019-11-07 16:43:54.736705"], ["updated_at", "2019-11-07 16:43:54.736705"], ["plan", "free"]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "scott@example.com"], ["LIMIT", 1]]
+MILIA >>>>> [register user/org] devise: signup user success - Password confirmation doesn't match Password
+MILIA >>>>> [register user/org] devise: signup user failure - Password confirmation doesn't match Password
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.4ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+MILIA >>>>> [register user/org] signup user create failed - Password confirmation doesn't match Password
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 200 OK in 334ms (Views: 110.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for ::1 at 2019-11-07 10:44:11 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UbsTJMkjg+noR2+rT+K2f6QvPn1zJKwMywmAOuHFBuRkBbdipDU/ZqeZpBXOEIDaHmKO45SifTjS/9ANDZzdrg==", "user"=>{"email"=>"scott@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "tenant"=>{"name"=>"Test Company LLC", "plan"=>"free"}, "payment"=>{"card_number"=>"", "card_cvv"=>"", "card_expires_month"=>"", "card_expires_year"=>""}, "commit"=>"Sign up"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTenant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tenants" WHERE "tenants"."name" = ? LIMIT ?[0m  [["name", "Test Company LLC"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "tenants" ("name", "created_at", "updated_at", "plan") VALUES (?, ?, ?, ?)[0m  [["name", "Test Company LLC"], ["created_at", "2019-11-07 16:44:12.065974"], ["updated_at", "2019-11-07 16:44:12.065974"], ["plan", "free"]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "scott@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "skip_confirm_change_password", "created_at", "updated_at", "is_admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "scott@example.com"], ["encrypted_password", "$2a$11$.fyjvOq0ItbUZvl5gFHfneR2JemeIGvqnn.GCudkeM4EVaUgDfmCC"], ["confirmation_token", "9ntWTQnsdMVsSZg8xziE"], ["confirmation_sent_at", "2019-11-07 16:44:12.162222"], ["skip_confirm_change_password", "t"], ["created_at", "2019-11-07 16:44:12.162150"], ["updated_at", "2019-11-07 16:44:12.162150"], ["is_admin", "t"]]
+  [1m[36mTenant Load (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["tenant_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "scott@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "id" = ?, "email" = ?, "encrypted_password" = ?, "confirmation_token" = ?, "confirmation_sent_at" = ?, "skip_confirm_change_password" = ?, "created_at" = ?, "updated_at" = ?, "is_admin" = ? WHERE "users"."id" = ?[0m  [["id", 1], ["email", "scott@example.com"], ["encrypted_password", "$2a$11$.fyjvOq0ItbUZvl5gFHfneR2JemeIGvqnn.GCudkeM4EVaUgDfmCC"], ["confirmation_token", "9ntWTQnsdMVsSZg8xziE"], ["confirmation_sent_at", "2019-11-07 16:44:12.162222"], ["skip_confirm_change_password", "t"], ["created_at", "2019-11-07 16:44:12.162150"], ["updated_at", "2019-11-07 16:44:12.162150"], ["is_admin", "t"], ["id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tenants_users" ("tenant_id", "user_id") VALUES (?, ?)[0m  [["tenant_id", 1], ["user_id", 1]]
+MILIA >>>>> [register user/org] devise: signup user success - 
+Redirected to http://localhost:3001/
+MILIA >>>>> [register user/org] signup user/tenant success - 
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "members" ("tenant_id", "user_id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["tenant_id", 1], ["user_id", 1], ["first_name", "Admin"], ["last_name", "Please edit me"], ["created_at", "2019-11-07 16:44:12.195429"], ["updated_at", "2019-11-07 16:44:12.195429"]]
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE (members.tenant_id = 1) AND "members"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/mailer/confirmation_instructions.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/mailer/confirmation_instructions.html.erb (0.4ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 113.9ms
+Sent mail to scott@example.com (7.5ms)
+Date: Thu, 07 Nov 2019 10:44:12 -0600
+From: do-not-reply@example.com
+Reply-To: do-not-reply@example.com
+To: scott@example.com
+Message-ID: <5dc449dc4faa3_1b72b1823cae2c8422e2@siren02.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome scott@example.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3001/users/confirmation?confirmation_token=9ntWTQnsdMVsSZg8xziE">Confirm my account</a></p>
+
+Completed 302 Found in 364ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:44:12 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 138ms (Views: 137.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=9ntWTQnsdMVsSZg8xziE" for ::1 at 2019-11-07 10:44:34 -0600
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"9ntWTQnsdMVsSZg8xziE"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "9ntWTQnsdMVsSZg8xziE"], ["LIMIT", 1]]
+MILIA >>>>> [confirm user] devise pass-thru - scott@example.com
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "9ntWTQnsdMVsSZg8xziE"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2019-11-07 16:44:34.340372"], ["updated_at", "2019-11-07 16:44:34.340705"], ["id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+Redirected to http://localhost:3001/
+Completed 302 Found in 12ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:44:34 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" WHERE "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (2.5ms)
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 101ms (Views: 94.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tenants/1/projects/new" for ::1 at 2019-11-07 10:44:45 -0600
+Processing by ProjectsController#new as HTML
+  Parameters: {"tenant_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.3ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (3.2ms)
+  Rendered projects/new.html.erb within layouts/application (4.2ms)
+  Rendered common/_navbar.html.erb (1.7ms)
+Completed 200 OK in 104ms (Views: 95.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/tenants/1/projects" for ::1 at 2019-11-07 10:45:05 -0600
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eE7A93E8W6cpX9WT9/NkZWlkCEpfuJP4SvVoGjsSH8NN8GSxHCrnKGaBHi12AVLA0ym41Lg+QsxTAzgt10vEiQ==", "project"=>{"title"=>"New project", "details"=>"Test new project", "expected_completion_date"=>"2019-11-29", "tenant_id"=>"1"}, "commit"=>"Create Project", "tenant_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.3ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "projects" WHERE "projects"."title" = ? LIMIT ?[0m  [["title", "New project"], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "details", "expected_completion_date", "tenant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "New project"], ["details", "Test new project"], ["expected_completion_date", "2019-11-29"], ["tenant_id", 1], ["created_at", "2019-11-07 16:45:05.026687"], ["updated_at", "2019-11-07 16:45:05.026687"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "user_projects" ("project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["project_id", 1], ["user_id", 1], ["created_at", "2019-11-07 16:45:05.027823"], ["updated_at", "2019-11-07 16:45:05.027823"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 23ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:45:05 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" WHERE "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."tenant_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.0ms)
+  Rendered home/index.html.erb within layouts/application (3.5ms)
+  Rendered common/_navbar.html.erb (1.0ms)
+Completed 200 OK in 103ms (Views: 99.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tenants/1/projects/1" for ::1 at 2019-11-07 10:45:11 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered artifacts/_list.html.erb (3.1ms)
+  Rendered projects/show.html.erb within layouts/application (8.0ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 110ms (Views: 101.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/members/new" for ::1 at 2019-11-07 10:45:21 -0600
+Processing by MembersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (2.8ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 112ms (Views: 108.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/members" for ::1 at 2019-11-07 10:45:41 -0600
+Processing by MembersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BxRI0WzrEhi3GLKaaEOwA1omiepFHdBUWPyK4aShzckyquyXAf2ul/jGeSTpsYam4Gs5dKKbAWBBCtrWSPgWgw==", "user"=>{"email"=>"john@example.com"}, "member"=>{"first_name"=>"John", "last_name"=>"Doe"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND (lower(email) = 'john@example.com')[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "john@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "john@example.com"], ["encrypted_password", "$2a$11$/TjYgdZn5ON5VnhxVQPfvuqBzzzjaExtqKGYXymSItyr6eqFaz5T2"], ["confirmation_token", "gEMrsejNcZAuSrzRqJXz"], ["confirmation_sent_at", "2019-11-07 16:45:41.209031"], ["created_at", "2019-11-07 16:45:41.208972"], ["updated_at", "2019-11-07 16:45:41.208972"]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["tenant_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "john@example.com"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "id" = ?, "email" = ?, "encrypted_password" = ?, "confirmation_token" = ?, "confirmation_sent_at" = ?, "created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["id", 2], ["email", "john@example.com"], ["encrypted_password", "$2a$11$/TjYgdZn5ON5VnhxVQPfvuqBzzzjaExtqKGYXymSItyr6eqFaz5T2"], ["confirmation_token", "gEMrsejNcZAuSrzRqJXz"], ["confirmation_sent_at", "2019-11-07 16:45:41.209031"], ["created_at", "2019-11-07 16:45:41.208972"], ["updated_at", "2019-11-07 16:45:41.208972"], ["id", 2]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "tenants_users" ("tenant_id", "user_id") VALUES (?, ?)[0m  [["tenant_id", 1], ["user_id", 2]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/mailer/confirmation_instructions.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/mailer/confirmation_instructions.html.erb (0.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 7.8ms
+Sent mail to john@example.com (1.5ms)
+Date: Thu, 07 Nov 2019 10:45:41 -0600
+From: do-not-reply@example.com
+Reply-To: do-not-reply@example.com
+To: john@example.com
+Message-ID: <5dc44a35377f4_1b72b1823cc19a442319@siren02.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome john@example.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3001/users/confirmation?confirmation_token=gEMrsejNcZAuSrzRqJXz">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "members" ("tenant_id", "user_id", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["tenant_id", 1], ["user_id", 2], ["first_name", "John"], ["last_name", "Doe"], ["created_at", "2019-11-07 16:45:41.229937"], ["updated_at", "2019-11-07 16:45:41.229937"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT  "members".* FROM "members" WHERE (members.tenant_id = 1) AND "members"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 127ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:45:41 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" WHERE "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."tenant_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.1ms)
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 84ms (Views: 80.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:45:44 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ph1f1EC3eel0XDhTNaqMLuRbK24CNI0Q1duyhB7zQ1eTo/uSLaHFZjuC8+20WLqLXhab8OWyXCTMLeKz8qqYHQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:45:44 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 82ms (Views: 81.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=gEMrsejNcZAuSrzRqJXz" for ::1 at 2019-11-07 10:46:11 -0600
+Processing by ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"gEMrsejNcZAuSrzRqJXz"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "gEMrsejNcZAuSrzRqJXz"], ["LIMIT", 1]]
+MILIA >>>>> [confirm user] password set form - john@example.com
+  Rendering devise/confirmations/show.html.erb within layouts/application
+  Rendered devise/confirmations/show.html.erb within layouts/application (1.9ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 116ms (Views: 113.9ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/user/confirmation" for ::1 at 2019-11-07 10:46:20 -0600
+Processing by ConfirmationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LFK3J/IDhthJTZ2BN3EfFXHJ23SkuA5cpj6bVwmhfJsE2BpKjk1x0eMKyv034EQSuQwXnOsl2PnHi6TxXpf2sQ==", "confirmation_token"=>"gEMrsejNcZAuSrzRqJXz", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Password"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "gEMrsejNcZAuSrzRqJXz"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$bbM2DLVd7rZvVNfCP4hWNua.yknJHUJpjAQIT42PoZYQorovdrFNC"], ["updated_at", "2019-11-07 16:46:20.459925"], ["id", 2]]
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "gEMrsejNcZAuSrzRqJXz"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2019-11-07 16:46:20.470437"], ["updated_at", "2019-11-07 16:46:20.470744"], ["id", 2]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+MILIA >>>>> [confirm user] invitee confirmed - john@example.com
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+Redirected to http://localhost:3001/
+Completed 302 Found in 114ms (ActiveRecord: 11.3ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:46:20 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["user_id", 2], ["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (2.1ms)
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+  Rendered common/_navbar.html.erb (1.1ms)
+Completed 200 OK in 99ms (Views: 96.0ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:46:28 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7Mz5GcF/oVauheFP4lCvDHf8otbbXKLyao3ZOpGryoLERlR0vTFWXwTCtjPiwfQLvzluPpTBdFcLOOacxp1AqA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: %
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:46:28 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 90.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:46:32 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.0ms)
+  Rendered common/_navbar.html.erb (1.1ms)
+Completed 200 OK in 115ms (Views: 113.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:46:37 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PaBzhDSjKptTssJyIbaG9McINkmot1kSaC51ftW+yhYZmoTBqJ9+YvY+aMf+KH6cNaCkd4yrrkJIGoqziByWEg==", "user"=>{"email"=>"scott@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: %
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "scott@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 100ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:46:37 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" WHERE "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."tenant_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (4.3ms)
+  Rendered home/index.html.erb within layouts/application (4.9ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 97ms (Views: 93.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tenants/1/projects/1" for ::1 at 2019-11-07 10:46:48 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered artifacts/_list.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (3.9ms)
+  Rendered common/_navbar.html.erb (1.1ms)
+Completed 200 OK in 118ms (Views: 112.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tenants/1/projects/1/users" for ::1 at 2019-11-07 10:46:54 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  Rendered projects/users.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/home/srlane/Notes/ruby-projects/rails-projects/saas-project/app/views/projects/users.html.erb:52: syntax error, unexpected =>
+...: @project.tenant.id), class => 'btn btn-primary' );@output_...
+...                             ^~):
+  
+app/views/projects/users.html.erb:52: syntax error, unexpected =>
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (10.7ms)
+Started GET "/tenants/1/projects/1/users" for ::1 at 2019-11-07 10:47:27 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (2.0ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 95ms (Views: 88.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:47:28 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (9.5ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.6ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.7ms)
+Started PUT "/tenants/1/projects/1/add_user?user_id=2" for ::1 at 2019-11-07 10:47:51 -0600
+Processing by ProjectsController#add_user as HTML
+  Parameters: {"authenticity_token"=>"7W8GB7rHw3tkdiz18GQ8ER00Kzw8v7bxg3kHfkIEm2gTV23l8GTXNxRsYm+fQ7ZXfHyHCRqhUFVWRbLLe0DCpA==", "user_id"=>"2", "tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_projects" ("project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["project_id", 1], ["user_id", 2], ["created_at", "2019-11-07 16:47:51.766956"], ["updated_at", "2019-11-07 16:47:51.766956"]]
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/tenants/1/projects/1/users
+Completed 302 Found in 10ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/tenants/1/projects/1/users" for ::1 at 2019-11-07 10:47:51 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT  "user_projects".* FROM "user_projects" WHERE "user_projects"."user_id" = ? AND "user_projects"."project_id" = ? LIMIT ?[0m  [["user_id", 2], ["project_id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (3.1ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 88ms (Views: 82.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tenants/1/projects/1/users" for ::1 at 2019-11-07 10:48:45 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT  "user_projects".* FROM "user_projects" WHERE "user_projects"."user_id" = ? AND "user_projects"."project_id" = ? LIMIT ?[0m  [["user_id", 2], ["project_id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (2.5ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 95ms (Views: 88.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:48:45 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.5ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (8.5ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.7ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.7ms)
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:48:59 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+8HZ7cDV5LtMVUMXZqvtRXSmQ2wXmLAM6RN38fjpLKgF+bIPinbw9zxPDY0JjGcDFe7vWTGGVqg8L8JEwa11ZA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:48:59 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 92ms (Views: 91.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:49:01 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered common/_navbar.html.erb (1.0ms)
+Completed 200 OK in 109ms (Views: 107.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:49:06 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oQJRFnSvOBs0PHePhfjlReagXreYBYEW7owQteXn+NKtwnM20SZ0FmMmUeGmHVGnSPsZjjfDW1hKGuoVFXJRhw==", "user"=>{"email"=>"john@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "john@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 108ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:49:06 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["user_id", 2], ["tenant_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["user_id", 2], ["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.1ms)
+  Rendered home/index.html.erb within layouts/application (3.6ms)
+  Rendered common/_navbar.html.erb (1.2ms)
+Completed 200 OK in 114ms (Views: 110.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tenants/1/projects/1" for ::1 at 2019-11-07 10:49:20 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered artifacts/_list.html.erb (3.0ms)
+  Rendered projects/show.html.erb within layouts/application (5.9ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 147ms (Views: 143.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/artifacts/new?project_id=1" for ::1 at 2019-11-07 10:49:27 -0600
+Processing by ArtifactsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 2]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  Rendering artifacts/new.html.erb within layouts/application
+  Rendered artifacts/_form.html.erb (48.7ms)
+  Rendered artifacts/new.html.erb within layouts/application (49.6ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 170ms (Views: 164.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/artifacts" for ::1 at 2019-11-07 10:49:52 -0600
+Processing by ArtifactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V0PjwdnX1r0GZcYeNcU6GeITF+6lMK5zF9lO8hFz8zU08cuOp5p2QLUvpUOafwJhyYJL+BtogtK3Pwo7ZqMbCQ==", "artifact"=>{"name"=>"Test Artifact by User", "upload"=>#<ActionDispatch::Http::UploadedFile:0x00007f3865759ed8 @tempfile=#<Tempfile:/tmp/RackMultipart20191107-439-simw9f.jpg>, @original_filename="rhUhZ.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"artifact[upload]\"; filename=\"rhUhZ.jpg\"\r\nContent-Type: image/jpeg\r\n">, "project_id"=>"1"}, "commit"=>"Create Artifact"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 2]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtifact Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "artifacts" WHERE "artifacts"."name" = ? LIMIT ?[0m  [["name", "Test Artifact by User"], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "artifacts" ("name", "key", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Test Artifact by User"], ["key", "https://srlsaasbucket.s3.us-east-2.amazonaws.com/Test%20Company%20LLC/rhUhZ.jpg"], ["project_id", 1], ["created_at", "2019-11-07 16:49:53.079684"], ["updated_at", "2019-11-07 16:49:53.079684"]]
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/tenants/1/projects/1
+Completed 302 Found in 856ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/tenants/1/projects/1" for ::1 at 2019-11-07 10:49:53 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 2]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.2ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered artifacts/_list.html.erb (11.9ms)
+  Rendered projects/show.html.erb within layouts/application (16.4ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 169ms (Views: 164.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tenants/1/projects/1" for ::1 at 2019-11-07 10:50:00 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 2]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 1]]
+  Rendered artifacts/_list.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (3.6ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 96ms (Views: 92.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:50:01 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.5ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (10.7ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.1ms)
+Started GET "/" for ::1 at 2019-11-07 10:50:12 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["user_id", 2], ["tenant_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["user_id", 2], ["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (2.7ms)
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 103ms (Views: 99.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:50:25 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VIO3u+Mp7EZhKYsNoA35sMKlvAAGKkVxeamG2SS2Y7w3MZ/0nWRMu9Jj6FAPt8HI6TTgFrhyadDZT8IQU2aLgA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:50:25 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 75ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:50:26 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+  Rendered common/_navbar.html.erb (1.4ms)
+Completed 200 OK in 117ms (Views: 116.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:50:31 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Rc5sDU/QdXjypBN3ZGki3gGw3I61MeaWFXkIziYzFqcORzzHGYm4R/G1dnRugd4IAmn1s1bnFUtMSKQzD13eXA==", "user"=>{"email"=>"scott@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "scott@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 99ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:50:31 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "projects" WHERE "projects"."tenant_id" = ? LIMIT ?) subquery_for_count[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."tenant_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.2ms)
+  Rendered home/index.html.erb within layouts/application (3.8ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 88ms (Views: 82.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/plan/edit" for ::1 at 2019-11-07 10:50:45 -0600
+Processing by TenantsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tenants/edit.html.erb within layouts/application
+  [1m[36mPayment Load (0.1ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."tenant_id" = ? LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  Rendered tenants/edit.html.erb within layouts/application (3.3ms)
+  Rendered common/_navbar.html.erb (1.3ms)
+Completed 200 OK in 117ms (Views: 114.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/plan/update" for ::1 at 2019-11-07 10:51:16 -0600
+Processing by TenantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"prXjpeqxKkM3hSfsVigvr3UWwBsopGdNcY1BBeCh73MvrJ/yDb027XJ2ysR0dq6AsueBxDFZmfk//thXcAd3Uw==", "tenant"=>{"name"=>"Test Company LLC", "plan"=>"premium"}, "payment"=>{"card_expires_month"=>"5", "card_expires_year"=>"2022", "token"=>"tok_1FcECWKcq08y3n4bUSZLVA16"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTenant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tenants" WHERE "tenants"."name" = ? AND ("tenants"."id" != ?) LIMIT ?[0m  [["name", "Test Company LLC"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "tenants" SET "plan" = ?, "updated_at" = ? WHERE "tenants"."id" = ?[0m  [["plan", "premium"], ["updated_at", "2019-11-07 16:51:16.242515"], ["id", 1]]
+  [1m[36mPayment Load (0.1ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."tenant_id" = ? LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "payments" ("token", "tenant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["token", "tok_1FcECWKcq08y3n4bUSZLVA16"], ["tenant_id", 1], ["created_at", "2019-11-07 16:51:17.512439"], ["updated_at", "2019-11-07 16:51:17.512439"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/plan/edit
+Completed 302 Found in 1279ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/plan/edit" for ::1 at 2019-11-07 10:51:17 -0600
+Processing by TenantsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tenants/edit.html.erb within layouts/application
+  [1m[36mPayment Load (0.1ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."tenant_id" = ? LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  Rendered tenants/edit.html.erb within layouts/application (2.0ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 106ms (Views: 103.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan/edit" for ::1 at 2019-11-07 10:52:43 -0600
+Processing by TenantsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.3ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tenants/edit.html.erb within layouts/application
+  [1m[36mPayment Load (0.2ms)[0m  [1m[34mSELECT  "payments".* FROM "payments" WHERE "payments"."tenant_id" = ? LIMIT ?[0m  [["tenant_id", 1], ["LIMIT", 1]]
+  Rendered tenants/edit.html.erb within layouts/application (5.1ms)
+  Rendered common/_navbar.html.erb (1.1ms)
+Completed 200 OK in 102ms (Views: 93.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:52:44 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (9.1ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.6ms)
+Started GET "/" for ::1 at 2019-11-07 10:52:51 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (2.7ms)
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 99ms (Views: 96.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tenants/1/projects/new" for ::1 at 2019-11-07 10:52:55 -0600
+Processing by ProjectsController#new as HTML
+  Parameters: {"tenant_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (1.3ms)
+  Rendered projects/new.html.erb within layouts/application (2.1ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 75.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tenants/1/projects" for ::1 at 2019-11-07 10:53:21 -0600
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XQ3s3yq/kPpL14sq5R2VJ7dmJyH9SRkJpctRXJ5wLyTUFJCIzbOMVA4kZgLHQxQIcJdm/uS0573ruMgODta3BA==", "project"=>{"title"=>"New project #2", "details"=>"P#2", "expected_completion_date"=>"2019-12-30", "tenant_id"=>"1"}, "commit"=>"Create Project", "tenant_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "projects" WHERE "projects"."title" = ? LIMIT ?[0m  [["title", "New project #2"], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "projects" ("title", "details", "expected_completion_date", "tenant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "New project #2"], ["details", "P#2"], ["expected_completion_date", "2019-12-30"], ["tenant_id", 1], ["created_at", "2019-11-07 16:53:21.705604"], ["updated_at", "2019-11-07 16:53:21.705604"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "user_projects" ("project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["project_id", 2], ["user_id", 1], ["created_at", "2019-11-07 16:53:21.706500"], ["updated_at", "2019-11-07 16:53:21.706500"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 12ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:53:21 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:1
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.1ms)
+  Rendered home/index.html.erb within layouts/application (3.8ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 101ms (Views: 98.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tenants/1/projects/2" for ::1 at 2019-11-07 10:53:24 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 2]]
+  Rendered artifacts/_list.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (3.1ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 88ms (Views: 83.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tenants/1/projects/2/users" for ::1 at 2019-11-07 10:53:25 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (1.9ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 104ms (Views: 96.6ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/tenants/1/projects/2/add_user?user_id=2" for ::1 at 2019-11-07 10:53:31 -0600
+Processing by ProjectsController#add_user as HTML
+  Parameters: {"authenticity_token"=>"E7regBSrgwL+HRgIkiVGdEFb0/Yw+rbAnQsD7yaYALmao6LX86efrLvu9SCwe8dbhqqSKSkHSHTTeJq9tj6YmQ==", "user_id"=>"2", "tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "user_projects" ("project_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["project_id", 2], ["user_id", 2], ["created_at", "2019-11-07 16:53:31.534364"], ["updated_at", "2019-11-07 16:53:31.534364"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/tenants/1/projects/2/users
+Completed 302 Found in 10ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/tenants/1/projects/2/users" for ::1 at 2019-11-07 10:53:31 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT  "user_projects".* FROM "user_projects" WHERE "user_projects"."user_id" = ? AND "user_projects"."project_id" = ? LIMIT ?[0m  [["user_id", 2], ["project_id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (2.4ms)
+  Rendered common/_navbar.html.erb (1.0ms)
+Completed 200 OK in 86ms (Views: 80.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tenants/1/projects/2/users" for ::1 at 2019-11-07 10:53:34 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT  "user_projects".* FROM "user_projects" WHERE "user_projects"."user_id" = ? AND "user_projects"."project_id" = ? LIMIT ?[0m  [["user_id", 2], ["project_id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (3.2ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 112ms (Views: 105.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:53:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (7.3ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.0ms)
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:53:37 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7sA8bdTtHD/b7PKS0Bloi1R0BxA2jxHTDm/9kGUx9T5n2UA6M+EAkZ4fH7ryR+mkk4VGzy9y72dAHGTC9ZdtHg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:53:37 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered common/_navbar.html.erb (1.1ms)
+Completed 200 OK in 97ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:53:38 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered common/_navbar.html.erb (1.1ms)
+Completed 200 OK in 101ms (Views: 100.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:53:42 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8glY7VdQKl7gBJcSH/+iOOPjDlo2cgHXrSw21BYK3W6RrSV9WkhXiRYr8avHc1e7Tirc/qait01/YHtisrNRGQ==", "user"=>{"email"=>"john@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "john@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 100ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:53:43 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ?[0m  [["user_id", 2], ["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ?[0m  [["user_id", 2], ["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.5ms)
+  Rendered home/index.html.erb within layouts/application (4.2ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 101ms (Views: 97.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tenants/1/projects/2" for ::1 at 2019-11-07 10:54:10 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 2]]
+  Rendered artifacts/_list.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (3.1ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 77ms (Views: 73.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tenants/1/projects/2/users" for ::1 at 2019-11-07 10:54:14 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 2]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (2.1ms)
+  Rendered common/_navbar.html.erb (1.0ms)
+Completed 200 OK in 121ms (Views: 114.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tenants/1/projects/2" for ::1 at 2019-11-07 10:54:24 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.5ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 2]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.3ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.2ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 2]]
+  Rendered artifacts/_list.html.erb (3.1ms)
+  Rendered projects/show.html.erb within layouts/application (8.3ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 118ms (Views: 104.5ms | ActiveRecord: 2.0ms)
+
+
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block in <module:DevisePermittedParameters> at /home/srlane/Notes/ruby-projects/rails-projects/saas-project/config/initializers/devise_permitted_parameters.rb:5)
+Started GET "/" for ::1 at 2019-11-07 10:55:27 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ?[0m  [["user_id", 2], ["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ?[0m  [["user_id", 2], ["tenant_id", 1]]
+  Rendered projects/_list.html.erb (23.7ms)
+  Rendered home/index.html.erb within layouts/application (25.4ms)
+  Rendered common/_navbar.html.erb (0.9ms)
+Completed 200 OK in 332ms (Views: 291.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/images/favicon.ico" for ::1 at 2019-11-07 10:55:28 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered collection of /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (8.6ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.5ms)
+  Rendering /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/srlane/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.2ms)
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:55:30 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jrUHlylnD4cLDEg5/Kbxfz9ILLQZM/kFoaoKMMqpiVlK6oiSjLyLTjXzAUU5PTNVz0J38JS0afK+SSGEivm8Lg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: %
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:55:30 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 84ms (Views: 80.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:55:31 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (24.0ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 118ms (Views: 115.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:55:38 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kb7oO7OVOk+pXZgRscGXDDjO++JpQkAECuFJ+fgZGzWHDChA0Bcch3BncMueC4edKKriMLVCKFU5wpEsu4WWHg==", "user"=>{"email"=>"scott@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: %
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "scott@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 109ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:55:38 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (8.3ms)
+  Rendered home/index.html.erb within layouts/application (8.9ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 97ms (Views: 91.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tenants/1/projects/2" for ::1 at 2019-11-07 10:55:41 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArtifact Load (0.1ms)[0m  [1m[34mSELECT "artifacts".* FROM "artifacts" WHERE "artifacts"."project_id" = ?[0m  [["project_id", 2]]
+  Rendered artifacts/_list.html.erb (2.2ms)
+  Rendered projects/show.html.erb within layouts/application (5.9ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 125ms (Views: 98.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tenants/1/projects/2/users" for ::1 at 2019-11-07 10:55:43 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT  "user_projects".* FROM "user_projects" WHERE "user_projects"."user_id" = ? AND "user_projects"."project_id" = ? LIMIT ?[0m  [["user_id", 2], ["project_id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (5.9ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 97ms (Views: 90.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/user_projects/4?tenant_id=1" for ::1 at 2019-11-07 10:55:46 -0600
+Processing by UserProjectsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lp/fCo+mnuloC4qI1sB1nqomgD6gz/jJiwMl8rKo2f9ON9+vlMWWZ+8AvjPV4a5yTuiQexwzN2htgyGoguhTzA==", "tenant_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: %
+  [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT  "user_projects".* FROM "user_projects" WHERE "user_projects"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "user_projects" WHERE "user_projects"."id" = ?[0m  [["id", 4]]
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3001/tenants/1/projects/2/users
+Completed 302 Found in 12ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/tenants/1/projects/2/users" for ::1 at 2019-11-07 10:55:46 -0600
+Processing by ProjectsController#users as HTML
+  Parameters: {"tenant_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ?[0m  [["user_id", 1]]
+MILIA >>>>> [change tenant] new: 1	old: 1
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE (users.tenant_id IS NULL) AND "user_projects"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "t"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "tenants_users" ON "users"."id" = "tenants_users"."user_id" WHERE (users.tenant_id IS NULL) AND "tenants_users"."tenant_id" = ? AND "users"."is_admin" = ?[0m  [["tenant_id", 1], ["is_admin", "f"]]
+  Rendering projects/users.html.erb within layouts/application
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered projects/users.html.erb within layouts/application (2.2ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 89ms (Views: 82.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:55:51 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Xj5o6xJJXsU0Ebd2p0XsAzT3RkNYv/JJIKqUJAEOT3qGlmhOCSpWS7Mag82kZDfv0DlWBuRDPejGKpB+MU7FSQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:55:51 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered common/_navbar.html.erb (1.0ms)
+Completed 200 OK in 88ms (Views: 87.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:55:52 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 102ms (Views: 100.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:55:58 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KmufTNDOupUEKJMK0o7UZ01BUePxId5ZHHRp0TiWSBu0oyYbXkCGz4i7sE33jXTwZ9gXgF/bV2HBMXwExmy/hQ==", "user"=>{"email"=>"john@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "john@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 121ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:55:58 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ?[0m  [["user_id", 2], ["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ? AND "projects"."tenant_id" = ?[0m  [["user_id", 2], ["tenant_id", 1]]
+  Rendered projects/_list.html.erb (2.5ms)
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 88.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:56:07 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4zSagLytH5tlQauTS674UJwbSwJnWiyhm53Csqofwvn6MWs3NZsPGC4x5JIGyNj9I29sKuX5WG/xjWdbAgnBAA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: %
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:56:07 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 91ms (Views: 89.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-07 10:56:08 -0600
+Processing by Milia::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered common/_navbar.html.erb (0.8ms)
+Completed 200 OK in 90ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-11-07 10:56:12 -0600
+Processing by Milia::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bvEzpzqJMUi77CRm2ERoqycVnZ7vHl8/Ie2SDhE0NUXOCzfT9yO3sXVYr6R63NP2bX6blMiYcXv3KQV37t03Ng==", "user"=>{"email"=>"scott@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "scott@example.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3001/
+Completed 302 Found in 106ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:56:12 -0600
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" INNER JOIN "tenants_users" ON "tenants"."id" = "tenants_users"."tenant_id" WHERE (tenants.tenant_id IS NULL) AND "tenants_users"."user_id" = ? ORDER BY "tenants"."id" ASC LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+MILIA >>>>> [Tenant#change_tenant] new: 1	old:%
+  [1m[36mTenant Load (0.1ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tenants".* FROM "tenants" WHERE (tenants.tenant_id IS NULL) AND "tenants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."tenant_id" = ?[0m  [["tenant_id", 1]]
+  Rendered projects/_list.html.erb (3.1ms)
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 87ms (Views: 82.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-11-07 10:56:17 -0600
+Processing by Milia::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eWkzNWxXSoZ0lXJz3CuVGjLd6Zo7XKv0P5mcbbB8+vMbp/4yKBbDhikIvDLd4DwE8XLadTdmQI6kRw13YIglHw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (users.tenant_id IS NULL) AND "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+MILIA >>>>> [change tenant] new: %	old: 1
+MILIA >>>>> [reset tenant] 
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3001/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2019-11-07 10:56:17 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered common/_navbar.html.erb (0.7ms)
+Completed 200 OK in 84ms (Views: 83.5ms | ActiveRecord: 0.0ms)
+
+

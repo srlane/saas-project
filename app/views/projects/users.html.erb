@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th><%= t '.actions', :default => t("helper.actions") %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -33,7 +33,7 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th><%= t '.actions', :default => t("helper.actions") %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -49,4 +49,4 @@
   </tbody>
 </table>
 
-<%= link_to 'Back', tenant_project_path(id: @project.id, tenant_id: @project.tenant.id), class => 'btn btn-primary' %>
+<%= link_to 'Back', tenant_project_path(id: @project.id, tenant_id: @project.tenant.id), :class => 'btn btn-primary' %>
